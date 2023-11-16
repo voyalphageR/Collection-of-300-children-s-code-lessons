@@ -1,27 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    //find prime number
-    double n,kt;
-    cout<<"Enter a valid number:";
-    cin>>n;
-    if(n<2){
-        cout<<"Error!";
-        exit(0);
+bool prime(int a) {
+    if (a <= 1) {
+        return false;
     }
-    if((n>1)&&(n<4)){
-        cout<<"Prime number!";
-        exit(0);
-    }
-    else{
-        for(int i=2;i<n;i++){
-            kt=n/i;
-            if((int)kt==kt){
-                cout<<"Composite number";
-                exit(0);
-            }
+    for (int i = 2; i <= sqrt(a); i++) {
+        if (a % i == 0) {
+            return false;
         }
     }
-    cout<<"Prime number";
+    return true;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    if (prime(n)==true) {
+        cout<<"Prime number";
+    }
+    else {
+        cout<<"Composite number";
+    }
     return 0;
 }
